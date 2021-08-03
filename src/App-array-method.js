@@ -1,4 +1,4 @@
-import { useState, } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
@@ -17,45 +17,27 @@ function App() {
 
   //------Dry Method using custom hooks-----------//
 
-  function CustomObjectHook(initialState) {
-    const [value, setValue] = useState(initialState);
+  function CustomArrayHook(initialState) {
+    const [value, setValue] = useState(initialState)
 
     function onChange(e) {
-      setValue(e.target.value);
+      setValue(e.target.value)
     }
 
     function showValue() {
-      console.log(value);
+      console.log(value)
     }
 
     function clearInput() {
-      setValue("");
+      setValue("")
     }
 
-    return {value, onChange, clearInput, showValue}
+    return [value,onChange,clearInput, showValue]
   }
 
-  //------when using object custom hooks the key must be renamed to the key name given in the functions--------//
-  const {
-    value: username,
-    onChange: userNameOnChange,
-    clearInput: clearUsernameInput,
-    showValue: showUsernameValue
-  } = CustomObjectHook("")
-  
-  const {
-    value: email,
-    onChange: emailOnChange,
-    clearInput: clearEmailInput,
-    showValue: showEmailValue
-  } = CustomObjectHook("")
-
-  const {
-    value: password,
-    onChange: passwordOnChange,
-    clearInput: clearPasswordInput,
-    showValue: showPasswordValue
-  } = CustomObjectHook("")
+  const [username, userNameOnChange, clearUsernameInput, showUsernameValue] = CustomArrayHook("")
+  const [email, emailOnChange, clearEmailInput, showEmailValue] = CustomArrayHook("")
+  const [password, passwordOnChange,clearPasswordInput, showPasswordValue] = CustomArrayHook("")
 
 
   //-------function to call all the customArrayHooks that were de-constructed above.-----//
@@ -93,7 +75,7 @@ function App() {
         <br/>
         <input
           type="text"
-          placeholder="password"
+          placeholder="username"
           value={password}
           onChange={(e)=> passwordOnChange(e)}
         />

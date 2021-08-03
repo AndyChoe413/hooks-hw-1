@@ -81,21 +81,33 @@ function App() {
           type="text"
           placeholder="username"
           value={username}
-          onChange={(e)=> userNameOnChange(e)}
+           //this version is used on non dry method or array methods
+          // onChange={(e)=> userNameOnChange(e)}
+
+          //this version is used in objects
+          onChange={userNameOnChange}
         />
         <br/>
         <input
           type="text"
           placeholder="email"
           value={email}
-          onChange={(e)=> emailOnChange(e)}
+           //this version is used on non dry method or array methods
+          // onChange={(e)=> emailOnChange(e)}
+
+          //this version is used in objects
+           onChange={emailOnChange}
         />
         <br/>
         <input
           type="text"
           placeholder="password"
           value={password}
-          onChange={(e)=> passwordOnChange(e)}
+          //this version is used on non dry method or array methods
+          // onChange={(e)=> passwordOnChange(e)}
+
+          //this version is used in objects
+          onChange={passwordOnChange}
         />
         <br />
         <button type="submit">Submit</button>
